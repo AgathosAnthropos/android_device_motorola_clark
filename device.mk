@@ -158,6 +158,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:system/etc/msm_irqbalance.conf
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += device/motorola/clark
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -226,8 +229,8 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf \
-    $(LOCAL_PATH)/configs/sensorhub-blacklist.txt:system/etc/firmware/sensorhub-blacklist.txt
+    $(LOCAL_PATH)/configs/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
+    #$(LOCAL_PATH)/configs/sensorhub-blacklist.txt:system/etc/firmware/sensorhub-blacklist.txt
 
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
