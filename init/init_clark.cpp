@@ -66,8 +66,8 @@ void vendor_load_properties()
     std::string car;
 
     platform = GetProperty("ro.board.platform", "");
-    if (platform != ANDROID_TARGET)
-        return;
+    //if (platform != ANDROID_TARGET)
+    //    return;
 
     sku = GetProperty("ro.boot.hardware.sku", "");
     car = GetProperty("ro.boot.carrier", "");
