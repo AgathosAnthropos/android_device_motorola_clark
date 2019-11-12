@@ -18,6 +18,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product-if-exists, vendor/motorola/clark/clark-vendor.mk)
 
 # Audio
+USE_XML_AUDIO_POLICY_CONF := 1
+#@Is this a good enough audio setup?
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \

@@ -170,11 +170,14 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
 TARGET_RIL_VARIANT := caf
 
 # SELinux
+#@@@TODO removed these sepolicy items?
 #include device/qcom/sepolicy/sepolicy.mk
-include device/qcom/sepolicy-legacy-um/sepolicy.mk
+#include device/qcom/sepolicy-legacy-um/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += \
-    $(DEVICE_PATH)/sepolicy
+#BOARD_SEPOLICY_DIRS += \
+#    $(DEVICE_PATH)/sepolicy
+#@@@TODO add this?
+#BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Sensors
 BOARD_USES_MOT_SENSOR_HUB := true

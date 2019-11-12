@@ -1,3 +1,6 @@
+type perfd, domain;
+type perfd_exec, exec_type, file_type;
+init_daemon_domain(perfd)
 dontaudit perfd self:capability { fsetid sys_ptrace };
 
 type_transition perfd mpctl_data_file:sock_file mpctl_socket;

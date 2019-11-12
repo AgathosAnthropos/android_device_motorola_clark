@@ -1,3 +1,4 @@
+type wcnss_filter, domain;
 unix_socket_connect(wcnss_filter, property, init)
 
 allow wcnss_filter bluetooth_prop:property_service set;
