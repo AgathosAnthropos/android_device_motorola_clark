@@ -219,6 +219,7 @@ PRODUCT_PACKAGES += \
     libshim_ril \
     libqsap_shim \
     libxml2 \
+    libprocessgroup \
     rild_socket
 
 # Recovery
