@@ -9,8 +9,8 @@ include $(CLEAR_VARS)
 LOCAL_SHARED_LIBRARIES := \
     libutils \
     libcutils \
-    liblog \
-    librocessgroup
+    liblog
+    #libprocessgroup
 
 LOCAL_SRC_FILES += \
     loc_log.cpp \

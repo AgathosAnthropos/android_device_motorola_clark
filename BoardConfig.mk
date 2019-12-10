@@ -214,3 +214,6 @@ TARGET_USES_WCNSS_MAC_ADDR_REV   := true
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
+
+# Temporary?
+#ALLOW_MISSING_DEPENDENCIES=true

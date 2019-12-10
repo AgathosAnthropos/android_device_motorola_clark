@@ -36,6 +36,8 @@
 #include <log_util.h>
 #include <loc_log.h>
 
+int set_sched_policy(int tid, SchedPolicy policy);
+
 static void LocMsgDestroy(void* msg) {
     delete (LocMsg*)msg;
 }

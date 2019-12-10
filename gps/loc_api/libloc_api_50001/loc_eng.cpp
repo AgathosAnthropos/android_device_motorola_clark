@@ -2943,7 +2943,7 @@ void loc_eng_handle_engine_up(loc_eng_data_s_type &loc_eng_data)
     EXIT_LOG(%s, VOID_RET);
 }
 
-#ifdef USE_GLIB
+//@@@#ifdef USE_GLIB
 /*===========================================================================
 FUNCTION set_sched_policy
 
@@ -2960,11 +2960,11 @@ SIDE EFFECTS
    N/A
 
 ===========================================================================*/
-static int set_sched_policy(int tid, SchedPolicy policy)
+int set_sched_policy(int tid, SchedPolicy policy)
 {
     return 0;
 }
-#endif /* USE_GLIB */
+//@@@#endif /* USE_GLIB */
 
 /*===========================================================================
 FUNCTION    loc_eng_read_config

@@ -17,6 +17,9 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product-if-exists, vendor/motorola/clark/clark-vendor.mk)
 
+# Temporary?
+#ALLOW_MISSING_DEPENDENCIES=true
+
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 #@Is this a good enough audio setup?
@@ -219,8 +222,8 @@ PRODUCT_PACKAGES += \
     libshim_ril \
     libqsap_shim \
     libxml2 \
-    libprocessgroup \
     rild_socket
+    #libprocessgroup \
 
 # Recovery
 PRODUCT_PACKAGES += \
