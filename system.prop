@@ -186,3 +186,6 @@ ro.usb.ptp_adb=0x2e84
 # Wifi Display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
+
+#@DEBUG?
+debug.sf.nobootanimation=1
