@@ -1,1 +1,2 @@
-allow mediacodec mpctl_socket:dir search;
+#@what should this be?
+#allow mediacodec mpctl_socket:dir search;

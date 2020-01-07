@@ -1,13 +1,14 @@
-type perfd, domain;
-type perfd_exec, exec_type, file_type;
+type perfd, coredomain, domain;
+type perfd_exec, exec_type, file_type, system_file_type;
 init_daemon_domain(perfd)
 dontaudit perfd self:capability { fsetid sys_ptrace };
 
-type_transition perfd mpctl_data_file:sock_file mpctl_socket;
+#@what should this be?
+#type_transition perfd mpctl_data_file:sock_file mpctl_socket;
 
-allow perfd mpctl_data_file:dir create_dir_perms;
-allow perfd mpctl_data_file:file create_file_perms;
-allow perfd mpctl_socket:sock_file create_file_perms;
+#allow perfd mpctl_data_file:dir create_dir_perms;
+#allow perfd mpctl_data_file:file create_file_perms;
+#allow perfd mpctl_socket:sock_file create_file_perms;
 allow perfd proc_kernel_sched:file rw_file_perms;
 allow perfd sysfs_devices_system_cpu:file rw_file_perms;
 allow perfd sysfs_performance:dir search;

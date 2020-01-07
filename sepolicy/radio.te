@@ -1,5 +1,10 @@
-qmux_socket(radio)
-
 allow radio net_radio_prop:property_service set;
-allow radio persist_file:dir { add_name remove_name search write };
-allow radio persist_file:file { create getattr open read rename unlink write };
+#@what should this be?
+#allow radio persist_file:dir { add_name remove_name search write };
+#allow radio persist_file:file { create getattr open read rename unlink write };
+#type rild_qmuxd_socket, file_type;
+#file_type_auto_trans(rild, qmuxd_socket, rild_qmuxd_socket)
+#allow rild qmuxd_socket:dir remove_name;
+#unix_socket_connect(rild, qmuxd, qmuxd)
+#allow qmuxd rild_qmuxd_socket:sock_file { getattr unlink };
+

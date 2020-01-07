@@ -1,5 +1,5 @@
-type hwrev, domain;
-type hwrev_exec, exec_type, file_type;
+type hwrev, coredomain, domain;
+type hwrev_exec, exec_type, file_type, system_file_type;
 init_daemon_domain(hwrev)
 
 allow hwrev shell_exec:file read;

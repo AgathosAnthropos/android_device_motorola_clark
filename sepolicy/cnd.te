@@ -1,2 +1,3 @@
-allow cnd netmgrd:dir search;
-allow cnd netmgrd:file { open read };
+#@what should this be?
+#allow cnd netmgrd:dir search;
+#allow cnd netmgrd:file { open read };
