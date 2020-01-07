@@ -31,6 +31,8 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 TARGET_NO_BOOTLOADER := true
+TARGET_COPY_OUT_VENDOR := system/vendor
+TARGET_COPY_OUT_SYSTEM := system
 
 # Assert
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
@@ -84,6 +86,9 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 42024960
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_ROOT_EXTRA_FOLDERS := persist fsg firmware
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 TARGET_FS_CONFIG_GEN += \
     $(DEVICE_PATH)/fs_config/file_caps.fs \
@@ -161,7 +166,7 @@ TARGET_USES_INTERACTION_BOOST := true
 PROTOBUF_SUPPORTED := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # Releasetools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_motorola
@@ -175,8 +180,8 @@ TARGET_RIL_VARIANT := caf
 #include device/qcom/sepolicy/sepolicy.mk
 #include device/qcom/sepolicy-legacy-um/sepolicy.mk
 
-#BOARD_SEPOLICY_DIRS += \
-#    $(DEVICE_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy
 #@@@TODO add this?
 #BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
@@ -218,3 +223,10 @@ WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
 # Temporary?
 #ALLOW_MISSING_DEPENDENCIES=true
+
+# See vim build/make/core/Makefile
+#BOARD_USES_VENDORIMAGE := true
+
+ifneq ($(TARGET_BUILD_VARIANT),user)
+SELINUX_IGNORE_NEVERALLOWS := true
+endif
