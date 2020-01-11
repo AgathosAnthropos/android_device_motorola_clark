@@ -34,6 +34,8 @@ TARGET_NO_BOOTLOADER := true
 TARGET_COPY_OUT_VENDOR := system/vendor
 TARGET_COPY_OUT_SYSTEM := system
 
+BUILD_BROKEN_DUP_RULES := true
+
 # Assert
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 TARGET_OTA_ASSERT_DEVICE := clark
@@ -87,7 +89,12 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_ROOT_EXTRA_FOLDERS := persist fsg firmware
+BOARD_ROOT_EXTRA_FOLDERS := fsg firmware
+
+# Root
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /mnt/vendor/persist:/persist
+
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 TARGET_FS_CONFIG_GEN += \
@@ -129,6 +136,8 @@ USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
 BOARD_KERNEL_BASE := 0x00000000
 #BOARD_KERNEL_CMDLINE := console=none androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 earlyprintk=msm_hsl_uart,0xf991e000 utags.blkdev=/dev/block/platform/soc.0/f9824900.sdhci/by-name/utags utags.backup=/dev/block/platform/soc.0/f9824900.sdhci/by-name/utagsBackup boot_cpus=0-5 androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE := console=tty0 loglevel=7 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 earlyprintk=msm_hsl_uart,0xf991e000 utags.blkdev=/dev/block/platform/soc.0/f9824900.sdhci/by-name/utags utags.backup=/dev/block/platform/soc.0/f9824900.sdhci/by-name/utagsBackup boot_cpus=0-5 androidboot.selinux=permissive
+#BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init root=/dev/dm-0 dm=\"system none ro,0 1 android-verity /dev/sda15\"
+BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE :=  4096
 BOARD_KERNEL_SEPARATED_DT := true

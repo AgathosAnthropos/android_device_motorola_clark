@@ -30,7 +30,7 @@ def ExtractFirmwares(info):
   info.script.AppendExtra('run_program("/sbin/sh", "/tmp/install/bin/extract_firmware.sh");')
   info.script.AppendExtra('ui_print("Firmware extracted");')
   info.script.AppendExtra('unmount("/firmware");')
-  info.script.Unmount("/system")
+  #info.script.Unmount("/system")
 
 def AddModemAssertion(info, input_zip):
   android_info = input_zip.read("OTA/android-info.txt")

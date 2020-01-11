@@ -15,3 +15,4 @@ allow init sysfs_lowmemorykiller:file getattr;
 #allow init sysfs_light:file setattr;
 allow init sysfs_power:file setattr;
 allow init system_data_file:file { rename append };
+#allow init sysfs_block_iosched :file relabelfrom;
